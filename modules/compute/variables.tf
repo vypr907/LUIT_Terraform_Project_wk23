@@ -1,10 +1,10 @@
 #modules/compute/variables
 
-variable "public_sg" {}
-variable "private_sg" {}
+variable "pub_sg_cpu" {}
+variable "priv_sg_cpu" {}
 
-variable "public_subnet" {}
-variable "private_subnet" {}
+variable "pub_sub_cpu" {}
+variable "priv_sub_cpu" {}
 
 variable "key_name" {}
 variable "elb" {}
