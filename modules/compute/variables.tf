@@ -11,11 +11,11 @@ variable "elb" {}
 variable "alb_target" {}
 
 variable "bast_instance_type" {
-    type = string
-    default = "t2.micro"
+  type    = string
+  default = "t2.micro"
 }
 
 variable "web_instance_type" {
-    type = string
-    default = "t2.micro"
+  type    = string
+  default = "t2.micro"
 }
