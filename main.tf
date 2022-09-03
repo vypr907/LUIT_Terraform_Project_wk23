@@ -6,14 +6,14 @@ module "network" {
   access_ip = var.access_ip
 
   #cidr things
-  vpc_cidr      = var.vpc_cidr_root
+  vpc_cidr      = "10.0.0.0/16"
   public_cidrs  = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
   private_cidrs = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
 
   #subnets
-  public_subnet_count  = var.pub_sub_ct
-  private_subnet_count = var.priv_sub_ct
-  max_subnets          = var.max_subs
+  public_subnet_count  = 3
+  private_subnet_count = 3
+  max_subnets          = 20
 
   #routing
   #gateways

@@ -1,14 +1,14 @@
 #modules/network/variables
 
-variable "vpc_cidr_ntwk" {
+variable "vpc_cidr" {
   type = string
 }
 
-variable "public_cidrs_ntwk" {
+variable "public_cidrs" {
   type = list(any)
 }
 
-variable "private_cidrs_ntwk" {
+variable "private_cidrs" {
   type = list(any)
 }
 

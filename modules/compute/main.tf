@@ -41,3 +41,33 @@ resource "aws_launch_template" "web" {
 }
 
 #create the autoscaling groups for both tiers
+resource "aws_autoscaling_group" "bastion_asg" {
+    name = "wk23_bastion"
+    min_size = 1
+    max_size = 3
+    desired_capacity = 1
+    vpc_zone_identifier = tolist(var.public_subnet)
+    
+    launch_template {
+        id = aws_launch_template.bastion.id
+        version = "$Latest"
+    }
+}
+
+resource "aws_autoscaling_group" "web_asg" {
+    name = "wk23_web"
+    min_size = 2
+    max_size = 3
+    desired_capacity = 2
+    vpc_zone_identifier = tolist(var.public_subnet)
+    
+    launch_template {
+        id = aws_launch_template.web.id
+        version = "$Latest"
+    }
+}
+
+resource "aws_autoscaling_attachment" "asg_attach" {
+    autoscaling_group_name = aws_autoscaling_group.web_asg.id
+    lb_target_group_arn = var.alb_tg
+}
