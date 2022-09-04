@@ -6,9 +6,13 @@ module "network" {
   access_ip = var.access_ip
 
   #cidr things
-  vpc_cidr      = "10.0.0.0/16"
-  public_cidrs  = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
-  private_cidrs = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
+  vpc_cidr = "10.0.0.0/16"
+  # something isn't working here, and I'm too tired to troubleshoot...
+  # switching to a manual method...
+  #public_cidrs  = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
+  #private_cidrs = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
+  public_cidrs  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  private_cidrs = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
 
   #subnets
   pub_sub_ct  = 3

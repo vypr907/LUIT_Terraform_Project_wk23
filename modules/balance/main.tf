@@ -36,7 +36,7 @@ resource "aws_lb_listener" "lb_listener" {
   port              = var.listener_port     #80
   protocol          = var.listener_protocol #"HTTP"
   default_action {
-    type   = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.alb_tg.arn
   }
 }
