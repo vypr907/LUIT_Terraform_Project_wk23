@@ -9,7 +9,7 @@ resource "random_integer" "random" {
 
 resource "random_shuffle" "avail_zone_list" {
   input        = data.aws_availability_zones.available.names
-  result_count = var.max_subs
+  result_count = var.max_subnets
 }
 
 #create our VPC

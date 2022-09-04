@@ -11,8 +11,8 @@ module "network" {
   private_cidrs = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
 
   #subnets
-  public_subnet_count  = 3
-  private_subnet_count = 3
+  pub_sub_ct  = 3
+  priv_sub_ct = 3
   max_subnets          = 20
 
   #routing
