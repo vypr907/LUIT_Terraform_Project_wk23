@@ -31,7 +31,7 @@ resource "aws_vpc" "vpc" {
 resource "aws_subnet" "public_subnet" {
   count                   = var.pub_sub_ct
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.public_cidrs_ntwk[count.index]
+  cidr_block              = var.public_cidrs[count.index]
   map_public_ip_on_launch = true
   availability_zone       = random_shuffle.avail_zone_list.result[count.index]
 
@@ -44,7 +44,7 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "private_subnet" {
   count                   = var.priv_sub_ct
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.private_cidrs_ntwk[count.index]
+  cidr_block              = var.private_cidrs[count.index]
   map_public_ip_on_launch = false
   availability_zone       = random_shuffle.avail_zone_list.result[count.index]
 

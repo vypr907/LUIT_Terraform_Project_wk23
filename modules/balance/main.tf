@@ -24,10 +24,10 @@ resource "aws_lb_target_group" "alb_tg" {
   }
 
   health_check {
-    healthy   = var.lb_healthy   #2
-    unhealthy = var.lb_unhealthy #2
-    timeout   = var.lb_timeout   #3
-    interval  = var.lb_interval  #30
+    healthy_threshold   = var.lb_healthy   #2
+    unhealthy_threshold = var.lb_unhealthy #2
+    timeout             = var.lb_timeout   #3
+    interval            = var.lb_interval  #30
   }
 }
 
