@@ -41,4 +41,8 @@ module "balance" {
   web_sg        = module.network.web_sg
   web_asg       = module.network.web_asg
   security_groups = module.network.web_sg
+  lb_healthy = 2
+  lb_unhealthy = 2
+  lb_timeout = 3
+  lb_interval = 30
 }
