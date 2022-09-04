@@ -124,6 +124,8 @@ resource "aws_nat_gateway" "natgate" {
 
 #eip
 resource "aws_eip" "wk23_eip" {
+  vpc = true
+  depends_on = [aws_internet_gateway.web_gateway]
 
 }
 

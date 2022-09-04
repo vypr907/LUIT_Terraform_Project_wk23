@@ -14,7 +14,7 @@ resource "aws_lb" "load_balancer" {
 }
 
 resource "aws_lb_target_group" "alb_tg" {
-  name     = "wk23_lb_tg_${substr(uuid(), 0, 3)}"
+  name     = "wk23-lb-tg-${substr(uuid(), 0, 3)}"
   port     = var.tg_port     #80
   protocol = var.tg_protocol #"HTTP"
   vpc_id   = var.vpc_id
