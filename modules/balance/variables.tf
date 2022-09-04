@@ -4,7 +4,6 @@ variable "public_subnet" {}
 variable "vpc_id" {}
 variable "web_sg" {}
 variable "web_asg" {}
-variable "subnet_id" {}
 
 variable "tg_port" {
   default = 80

@@ -40,4 +40,5 @@ module "balance" {
   vpc_id        = module.network.vpc_id
   web_sg        = module.network.web_sg
   web_asg       = module.network.web_asg
+  security_groups = module.network.web_sg
 }
