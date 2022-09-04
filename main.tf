@@ -29,7 +29,7 @@ module "compute" {
   public_subnet  = module.network.public_subnet
   private_subnet = module.network.private_subnet
   elb            = module.balance.elb
-  alb_tg         = module.balance.alb_tg
+  alb_target         = module.balance.alb_target
   key_name       = "sacred_icon"
 }
 
