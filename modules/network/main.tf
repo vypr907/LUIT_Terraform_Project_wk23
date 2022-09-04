@@ -130,58 +130,58 @@ resource "aws_eip" "wk23_eip" {
 #security groups
 #PUBLIC
 resource "aws_security_group" "pub_sg" {
-  name = "wk23_bastion_sg"
+  name        = "wk23_bastion_sg"
   description = "Allow SSH inbound traffic"
-  vpc_id = aws_vpc.vpc.id
-  
+  vpc_id      = aws_vpc.vpc.id
+
   ingress {
-      from_port = 22
-      to_port = 22
-      protocol = "tcp"
-      cidr_blocks = [var.access_ip]
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.access_ip]
   }
-  
+
   egress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
 #PRIVATE
 resource "aws_security_group" "priv_sg" {
-    name = "wk23_server_sg"
-    description = "Allow SSH inbound traffic from Bastion Host"
-    vpc_id = aws_vpc.vpc.id
-    
-    ingress {
-        from_port = 22
-        to_port = 22
-        protocol = "tcp"
-        security_groups = [aws_security_group.pub_sg.id]
-    }
-    
-    egress {
-        from_port = 0
-        to_port = 0
-        protocol = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    
-    ingress {
-      from_port = 80
-      to_port = 80
-      protocol = "tcp"
-      security_groups = [aws_security_group.web_sg]
-    }
-    
-    egress {
-      from_port = 0
-      to_port = 0
-      protocol = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
+  name        = "wk23_server_sg"
+  description = "Allow SSH inbound traffic from Bastion Host"
+  vpc_id      = aws_vpc.vpc.id
+
+  ingress {
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    security_groups = [aws_security_group.pub_sg.id]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    security_groups = [aws_security_group.web_sg]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 #WEB
