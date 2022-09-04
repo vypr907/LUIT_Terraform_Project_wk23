@@ -31,8 +31,7 @@ resource "aws_launch_template" "web" {
   image_id               = data.aws_ami.lnx_ami.id
   instance_type          = var.web_instance_type
   vpc_security_group_ids = [var.private_sg]
-  #TODO: Create simple_web_install.sh from bootstrap
-  #user_data = filebase64("simple_web_install.sh") 
+  user_data = filebase64("simple_web_install.sh") 
 
   tags = {
     Name    = "wk23_web"
