@@ -11,7 +11,7 @@ module "network" {
   # switching to a manual method...
   #public_cidrs  = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
   #private_cidrs = [for i in range(2, 255, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
-  public_cidrs  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  public_cidrs  = ["10.0.6.0/24", "10.0.7.0/24", "10.0.8.0/24"]
   private_cidrs = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
 
   #subnets
