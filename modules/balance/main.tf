@@ -32,7 +32,7 @@ resource "aws_lb_target_group" "alb_tg" {
 }
 
 resource "aws_lb_listener" "lb_listener" {
-  load_balancer_arn = aws_lb.load_balancer_arn
+  load_balancer_arn = aws_lb.load_balancer.arn
   port              = var.listener_port     #80
   protocol          = var.listener_protocol #"HTTP"
   default_action {

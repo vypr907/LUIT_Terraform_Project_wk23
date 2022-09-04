@@ -1,7 +1,7 @@
 #module/network/outputs
 
 output "vpc_id" {
-  value = aws_vpc.KP21_vpc.id
+  value = aws_vpc.vpc.id
 }
 
 output "public_sg" {

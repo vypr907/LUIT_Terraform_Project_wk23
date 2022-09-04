@@ -14,7 +14,7 @@ resource "random_shuffle" "avail_zone_list" {
 
 #create our VPC
 resource "aws_vpc" "vpc" {
-  cidr_block           = var.vpc_cidr_ntwk
+  cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
   enable_dns_support   = true
 
