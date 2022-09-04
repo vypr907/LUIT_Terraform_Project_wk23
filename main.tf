@@ -39,6 +39,7 @@ module "balance" {
   public_subnet   = module.network.public_subnet
   vpc_id          = module.network.vpc_id
   web_sg          = module.network.web_sg
+  web_asg         = module.compute.web_asg
   security_groups = module.network.web_sg
   lb_healthy      = 2
   lb_unhealthy    = 2
